@@ -20,7 +20,16 @@ namespace FCMTest.Source.Activities
             SetContentView(Resource.Layout.Main);
             msgText = FindViewById<TextView>(Resource.Id.msgText);
 
-            Log.Debug(TAG, "google app id: " + Resource.String.google_app_id);
+            var options = new FirebaseOptions.Builder()
+                .SetApplicationId("FCMTest.FCMTest")
+                .SetApiKey("AIzaSyA05NOmfwFID7RyjrdWhKC0hZU8K-HIOt4")
+                .SetDatabaseUrl("https://fcmtest-66dc1.firebaseio.com")
+                .SetGcmSenderId("631744366572")
+                .SetStorageBucket("fcmtest-66dc1.appspot.com")
+                .Build();
+            FirebaseApp.InitializeApp(this, options);
+
+//            Log.Debug(TAG, "google app id: " + Resource.String.google_app_id);
 
             if (Intent.Extras != null)
             {
